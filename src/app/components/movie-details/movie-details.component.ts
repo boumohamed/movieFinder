@@ -13,7 +13,9 @@ export class MovieDetailsComponent implements OnInit {
 
   Movie : movieD;
   id: string;
-  history_key = 'search_history';
+
+
+
   constructor(private data : MovieService,
               private route: ActivatedRoute,) { }
 
@@ -21,10 +23,19 @@ export class MovieDetailsComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.data.getDetails(this.id).subscribe(data => {
       this.Movie = data;
+
     });
 
-    
+
   }
 
-  
+
 }
+
+
+
+
+
+
+
+

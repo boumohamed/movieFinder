@@ -1,29 +1,35 @@
 <h1 class="text-center text-primary mt-4">Search Your Movie Here <i class="fa fa-arrow-down"></i></h1>
 
-  <div class="row justify-content-center ">
+  <div class="row justify-content-center">
     <div class="col-md-8 ftco-animate fadeInUp ftco-animated">
         <form #titleForm="ngForm">
-            <div class="form-group d-md-flex"> 
-              <input type="text" class="form-control px-3" 
-              name="title"  
-              class="form-control" 
+            <div class="form-group d-md-flex">
+              <input type="text" class="form-control px-3"
+              name="title"
+              class="form-control"
               [(ngModel)]="title"
-              > 
+              >
                 <button class="btn btn-primary ml-1" (click)="getMovies()"><i class="fa fa-search"></i></button>
                  </div>
-                 
+
         </form>
     </div>
+    <div class="spinner-border text-primary" role="status" *ngIf="isUpdate"></div>
 </div>
 
 
 
-<h1 class="text-center text-danger mt-4" *ngIf="Movies == null && first != 1">No Movie Found</h1>
+
+
+
+
+
+<h1 class="text-center text-danger mt-4" *ngIf="Movies == null && first != 1 && !isUpdate">No Movie Found</h1>
 <!--
 
 <div class="content">
     <div fxLayout="row wrap" fxLayoutGap="30px grid">
-      
+
       <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let movie of Movies">
         <mat-card class="mat-elevation-z4" >
           <mat-card-header>
@@ -47,45 +53,45 @@
     </div>
 
     -->
-      
-  
-                        <div class="row row-cols-2 row-cols-md-2" *ngIf="Movies != null">
+
+
+                        <div class="row row-cols-2 row-cols-md-2" *ngIf="Movies != null && !isUpdate">
                             <!-- Movie Card Start -->
                             <div class="card-view" *ngFor="let movie of Movies" >
 
 
                               <div [ngSwitch]="movie.Poster === 'N/A' || movie.Poster !== 'N/A'">
                                 <img mat-card-imag class="img-responsive" *ngSwitchCase="movie.Poster != 'N/A'" [src]="movie.Poster"
-                                    mat-card-image 
+                                    mat-card-image
                                     style=" background-size: cover;"
                                     routerLink="moviedetails/{{movie.imdbID}}"
                                 >
                                 <img mat-card-imag class="img-responsive" *ngSwitchCase="movie.Poster == 'N/A'"
                                   src="http://www.novelupdates.com/img/noimagefound.jpg"
-                                  mat-card-image 
+                                  mat-card-image
                                   style=" background-size: cover;"
                                   routerLink="moviedetails/{{movie.imdbID}}">
                             </div>
 
 
-                                                            
+
                                 <div class="card-movie-content">
                                     <div class="card-movie-content-head">
                                         <a routerLink="moviedetails/{{movie.imdbID}}">
                                             <h3 class="card-movie-title">{{movie.Title}}</h3>
                                         </a>
-                                        
+
                                     </div>
                                     <p class="text-primary"> {{movie.Year}}</p>
-                                   
+
                                 </div>
                             </div>
                             <!-- Movie Card End -->
                         </div>
-                  
- 
-              
-            
-    
 
-    
+
+
+
+
+
+

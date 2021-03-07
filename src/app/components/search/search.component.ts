@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
-import { movie } from '../../models/movie'
+import { movie } from '../../models/movie';
+
 
 
 @Component({
@@ -12,23 +13,30 @@ export class SearchComponent implements OnInit {
 
   history_key = 'search_history';
   Movies : movie[];
-  title : string = ""; 
+  title : string = "";
   first = 1;
+  isUpdate : boolean = false;
   constructor(private data : MovieService) { }
 
   ngOnInit(): void {
- 
+
 
   }
   getMovies()
   {
     this.data.getMovies(this.title).subscribe( data => {
-      this.Movies = data.Search;
-    
-    });
-    this.first = 0;
-  }
- 
+      this.isUpdate = true;
 
-  
+      setTimeout(() =>
+      {
+        this.Movies = data.Search;
+        this.isUpdate = false;
+        this.first = 0;
+      }, 1000);
+    });
+
+  }
+
+
+
 }

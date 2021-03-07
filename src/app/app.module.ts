@@ -21,6 +21,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { ContentLoaderModule } from '@ngneat/content-loader';
 
 
 
@@ -43,16 +44,16 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
     FlexLayoutModule,
     MatInputModule,
     HttpClientModule,
-    FormsModule
-
-
+    FormsModule,
+    ContentLoaderModule
   ],
 
 
-  
+
 
 
   providers: [MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

@@ -6,7 +6,7 @@
         <h1 class="text-light ">{{Movie.Title}} <span class="text-warning span text-right" *ngIf="Movie.Writer != 'N/A'">{{Movie.imdbRating}} <i class="fa fa-star"></i> imdb</span></h1>
     </div>
     <div class="card-body">
-        
+
         <div [ngSwitch]="Movie.Poster === 'N/A' || Movie.Poster !== 'N/A'">
             <img mat-card-imag class="img-responsive" *ngSwitchCase="Movie.Poster != 'N/A'" [src]="Movie.Poster">
             <img mat-card-imag class="img-responsive" *ngSwitchCase="Movie.Poster == 'N/A'"
@@ -18,16 +18,16 @@
             <li class="list-group-item item" *ngIf="Movie.Language != 'N/A'">Language : <span class="text-primary span">{{Movie.Language}}</span></li>
             <li class="list-group-item item" *ngIf="Movie.Country != 'N/A'">Country : <span class="text-primary span">{{Movie.Country}}</span></li>
             <li class="list-group-item item" *ngIf="Movie.BoxOffice != 'N/A'">BoxOffice : <span class="text-primary span">{{Movie.BoxOffice}}</span></li>
-            <li class="list-group-item item" *ngIf="Movie.Runtime != 'N/A'">Run time : <span class="text-primary span">{{Movie.Runtime}}</span></li>     
+            <li class="list-group-item item" *ngIf="Movie.Runtime != 'N/A'">Run time : <span class="text-primary span">{{Movie.Runtime}}</span></li>
             <li class="list-group-item item" *ngIf="Movie.Production != 'N/A'">Production : <span class="text-primary span">{{Movie.Production}}</span></li>
             <li class="list-group-item item" *ngIf="Movie.Website != 'N/A'">Website : <span class="text-primary span">{{Movie.Website}}</span></li>
             </ul>
             <hr>
             <p *ngIf="Movie.Plot != 'N/A'" class="Plot">{{Movie.Plot}}</p>
-            
+
     </div>
     <div class="card-footer text-light">{{Movie.Year}}</div>
 </div>
 
 
- 
+
